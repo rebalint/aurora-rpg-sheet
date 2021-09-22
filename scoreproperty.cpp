@@ -37,8 +37,8 @@ void ScoreProperty::modChange(int newMod){
 }
 
 void ScoreProperty::recalculate(){
-    if(baseCalculation){
-        baseCalculation(baseArg1, baseArg2);
+    if(isCalculated){
+        base = baseCalculation(baseArg1, baseArg2);
     }
     int currentScore = base + manualMod;
     if(modifiers.size()>0){

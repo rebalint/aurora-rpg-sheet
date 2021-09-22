@@ -22,6 +22,11 @@ void ScorePropertyWidget::refresh(ScoreProperty * scoreProp)
     ui->scoreDisp->setValue(scoreProp->score);
     ui->baseSelector->setValue(scoreProp->getBase());
     ui->manualModSelector->setValue(scoreProp->manualMod);
+    //hide base select if the prop is calculated
+    if(scoreProp->isCalculated){
+        ui->baseSelector->hide();
+        ui->baseLabel->hide();
+    }
 }
 
 void ScorePropertyWidget::changeScore(int newScore){
@@ -35,6 +40,8 @@ void ScorePropertyWidget::scoreConnect(ScoreProperty *scoreProp){
 
     //SCOREPROP->UI connections
     connect(scoreProp, & ScoreProperty::scoreChange, this, & ScorePropertyWidget::changeScore);
+
+    refresh(scoreProp);
 }
 
 //connect UI events to signals for external use

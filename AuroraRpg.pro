@@ -13,22 +13,23 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     poolproperty.cpp \
+    poolpropertywidget.cpp \
     property.cpp \
     scoreproperty.cpp \
-    scorepropertywidget.cpp \
-    skillproperty.cpp
+    scorepropertywidget.cpp
 
 HEADERS += \
     character.h \
     mainwindow.h \
     poolproperty.h \
+    poolpropertywidget.h \
     property.h \
     scoreproperty.h \
-    scorepropertywidget.h \
-    skillproperty.h
+    scorepropertywidget.h
 
 FORMS += \
     mainwindow.ui \
+    poolpropertywidget.ui \
     scorepropertywidget.ui
 
 # Default rules for deployment.

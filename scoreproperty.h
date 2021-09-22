@@ -22,7 +22,8 @@ public:
 
     void setBase(int newBase);
 
-    int (*baseCalculation)(ScoreProperty * arg1, ScoreProperty * arg2);    //OVERRIDE THIS EITHER WITH ACTUAL BASE CALCULATION OR EMPTY FUNCTION
+    bool isCalculated = false;  //set to true if using baseCalculation
+    int (*baseCalculation)(ScoreProperty * arg1, ScoreProperty * arg2);    //OVERRIDE THIS EITHER WITH ACTUAL BASE CALCULATION IF APPLICABLE
 
     ScoreProperty * baseArg1;   //stores properties used in baseCalculation
     ScoreProperty * baseArg2;

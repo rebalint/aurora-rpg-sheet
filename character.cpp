@@ -8,48 +8,71 @@ Character::Character(QObject *parent) : QObject(parent)
     mind.name = "Mind";
     soul.name = "Soul";
 
-    hp.name = "hp";
-    wp.name = "wp";
+    hp.max.name = "HP";
+    wp.max.name = "WP";
 
-    nr.name  = "nr";
-    sr.name = "sr";
-    speed.name = "speed";
+    nr.name  = "NR";
+    sr.name = "SR";
+    speed.name = "Speed";
 
-    strenght.name = "strenght";
-    nimble.name = "nimble";
-    perception.name = "perception";
-    diplomacy.name = "diplomacy";
-    magic.name = "magic";
-    connection.name = "connection";
-
-    //setup for skills
-    strenght.init(& body);
-    nimble.init(& body);
-    perception.init(& mind);
-    diplomacy.init(& mind);
-    magic.init(& soul);
-    connection.init(& soul);
+    strength.name = "Strength";
+    nimble.name = "Nimble";
+    perception.name = "Perception";
+    diplomacy.name = "Diplomacy";
+    magic.name = "Magic";
+    connection.name = "Connection";
 
     //setup for baseCalcs, connections
+    hp.max.isCalculated = true;
     hp.max.baseArg1 = & body;
     hp.max.baseCalculation = & hpBase;
     connect(&body, &Property::onChange, &hp.max, &ScoreProperty::recalculate);
 
+    wp.max.isCalculated = true;
     wp.max.baseArg1 = & soul;
     wp.max.baseCalculation = & wpBase;
     connect(&soul, &Property::onChange, &wp.max, &ScoreProperty::recalculate);
 
-
+    nr.isCalculated = true;
     nr.baseArg1 = & mind;
     nr.baseArg2 = & body;
     nr.baseCalculation = & nrBase;
     connect(&mind, &Property::onChange, &nr, &ScoreProperty::recalculate);
     connect(&body, &Property::onChange, &nr, &ScoreProperty::recalculate);
 
-
+    sr.isCalculated = true;
     sr.baseArg1 = & soul;
     sr.baseCalculation = srBase;
     connect(&soul, &Property::onChange, &sr, &ScoreProperty::recalculate);
+
+    //same setup for skills
+    strength.baseArg1= & body;
+    nimble.baseArg1 = & body;
+    perception.baseArg1 = & mind;
+    diplomacy.baseArg1 = & mind;
+    magic.baseArg1 = & soul;
+    connection.baseArg1 = & soul;
+
+    strength.baseCalculation = & skillBase;
+    nimble.baseCalculation = & skillBase;
+    perception.baseCalculation = & skillBase;
+    diplomacy.baseCalculation = & skillBase;
+    magic.baseCalculation = & skillBase;
+    connection.baseCalculation = & skillBase;
+
+    connect(&body, &Property::onChange, &strength, &ScoreProperty::recalculate);
+    connect(&body, &Property::onChange, &nimble, &ScoreProperty::recalculate);
+    connect(&mind, &Property::onChange, &perception, &ScoreProperty::recalculate);
+    connect(&mind, &Property::onChange, &diplomacy, &ScoreProperty::recalculate);
+    connect(&soul, &Property::onChange, &magic, &ScoreProperty::recalculate);
+    connect(&soul, &Property::onChange, &connection, &ScoreProperty::recalculate);
+
+    strength.isCalculated = true;
+    nimble.isCalculated = true;
+    perception.isCalculated = true;
+    diplomacy.isCalculated = true;
+    magic.isCalculated = true;
+    connection.isCalculated = true;
 }
 
 void Character::roll(){
@@ -78,5 +101,18 @@ int Character::srBase(ScoreProperty * arg1, ScoreProperty * arg2){  //arg1: soul
         return(floor(arg1->score / 2));
     } else {
         return(0);
+    }
+}
+
+int Character::skillBase(ScoreProperty *arg1, ScoreProperty *arg2){
+    //table is implemented here
+    if(arg1->score <= 10){
+        return(-1);
+    } else if(arg1->score <= 15){
+        return(0);
+    } else if (arg1->score <= 20) {
+        return(1);
+    } else{
+        return(2);
     }
 }

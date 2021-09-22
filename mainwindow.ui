@@ -14,15 +14,87 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="ScorePropertyWidget" name="bodyWidget" native="true">
+   <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>270</y>
-      <width>361</width>
-      <height>91</height>
+      <x>10</x>
+      <y>10</y>
+      <width>1281</width>
+      <height>741</height>
      </rect>
     </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="leftLA">
+       <item>
+        <widget class="ScorePropertyWidget" name="bodyBox" native="true"/>
+       </item>
+       <item>
+        <widget class="ScorePropertyWidget" name="mindBox" native="true"/>
+       </item>
+       <item>
+        <widget class="ScorePropertyWidget" name="soulBox" native="true"/>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Maximum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="ScorePropertyWidget" name="nrBox" native="true"/>
+       </item>
+       <item>
+        <widget class="ScorePropertyWidget" name="srBox" native="true"/>
+       </item>
+       <item>
+        <widget class="ScorePropertyWidget" name="speedBox" native="true"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="midLA">
+       <item>
+        <widget class="PoolPropertyWidget" name="hpBox" native="true"/>
+       </item>
+       <item>
+        <widget class="PoolPropertyWidget" name="wpBox" native="true"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="skillLA">
+       <item>
+        <widget class="ScorePropertyWidget" name="strengthBox" native="true"/>
+       </item>
+       <item>
+        <widget class="ScorePropertyWidget" name="nimbleBox" native="true"/>
+       </item>
+       <item>
+        <widget class="ScorePropertyWidget" name="perceptionBox" native="true"/>
+       </item>
+       <item>
+        <widget class="ScorePropertyWidget" name="diplomacyBox" native="true"/>
+       </item>
+       <item>
+        <widget class="ScorePropertyWidget" name="magicBox" native="true"/>
+       </item>
+       <item>
+        <widget class="ScorePropertyWidget" name="connectionBox" native="true"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -42,6 +114,12 @@
    <class>ScorePropertyWidget</class>
    <extends>QWidget</extends>
    <header location="global">scorepropertywidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PoolPropertyWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">poolpropertywidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

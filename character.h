@@ -14,7 +14,7 @@
 #include <QDebug>
 #include "poolproperty.h"
 #include "scoreproperty.h"
-#include "skillproperty.h"
+//#include "skillproperty.h"
 
 class Character : private QObject
 {
@@ -37,18 +37,19 @@ public:
     ScoreProperty sr;
     ScoreProperty speed;
 
-    SkillProperty strenght;
-    SkillProperty nimble;
-    SkillProperty perception;
-    SkillProperty diplomacy;
-    SkillProperty magic;
-    SkillProperty connection;
+    ScoreProperty strength;
+    ScoreProperty nimble;
+    ScoreProperty perception;
+    ScoreProperty diplomacy;
+    ScoreProperty magic;
+    ScoreProperty connection;
 
     //Funtions for calculating certain properties
     static int hpBase(ScoreProperty * arg1, ScoreProperty * arg2);
     static int wpBase(ScoreProperty * arg1, ScoreProperty * arg2);
     static int nrBase(ScoreProperty * arg1, ScoreProperty * arg2);
     static int srBase(ScoreProperty * arg1, ScoreProperty * arg2);
+    static int skillBase(ScoreProperty * arg1, ScoreProperty * arg2);
 
 
 signals:
