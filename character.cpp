@@ -2,6 +2,26 @@
 
 Character::Character(QObject *parent) : QObject(parent)
 {
+    //set up names
+    //yes this is awful, and? it's still the most viable method
+    body.name = "Body";
+    mind.name = "Mind";
+    soul.name = "Soul";
+
+    hp.name = "hp";
+    wp.name = "wp";
+
+    nr.name  = "nr";
+    sr.name = "sr";
+    speed.name = "speed";
+
+    strenght.name = "strenght";
+    nimble.name = "nimble";
+    perception.name = "perception";
+    diplomacy.name = "diplomacy";
+    magic.name = "magic";
+    connection.name = "connection";
+
     //setup for skills
     strenght.init(& body);
     nimble.init(& body);

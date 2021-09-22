@@ -24,6 +24,19 @@ void ScorePropertyWidget::refresh(ScoreProperty * scoreProp)
     ui->manualModSelector->setValue(scoreProp->manualMod);
 }
 
+void ScorePropertyWidget::changeScore(int newScore){
+    ui->scoreDisp->setValue(newScore);
+}
+
+void ScorePropertyWidget::scoreConnect(ScoreProperty *scoreProp){
+    //UI->SCOREPROP connections
+    connect(this, & ScorePropertyWidget::manualBaseChange, scoreProp, & ScoreProperty::baseChange);
+    connect(this, &  ScorePropertyWidget::manualModChange, scoreProp, & ScoreProperty::modChange);
+
+    //SCOREPROP->UI connections
+    connect(scoreProp, & ScoreProperty::scoreChange, this, & ScorePropertyWidget::changeScore);
+}
+
 //connect UI events to signals for external use
 void ScorePropertyWidget::on_manualModSelector_valueChanged(int newMod)
 {

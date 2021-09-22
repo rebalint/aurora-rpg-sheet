@@ -19,6 +19,7 @@ class ScorePropertyWidget : public QWidget
 public:
     explicit ScorePropertyWidget(QWidget *parent = nullptr);
     ~ScorePropertyWidget();
+    void scoreConnect(ScoreProperty * scoreProp);   //event connection
 
 private:
     Ui::ScorePropertyWidget *ui;
@@ -28,7 +29,8 @@ signals:
     int manualBaseChange(int newBase);
 
 public slots:
-    void refresh(ScoreProperty * scoreProp);
+    void refresh(ScoreProperty * scoreProp);    //syncs everything
+    void changeScore(int newScore);
 
 private slots:
     void on_manualModSelector_valueChanged(int arg1);

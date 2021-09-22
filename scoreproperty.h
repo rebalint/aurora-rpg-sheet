@@ -35,6 +35,8 @@ protected:
 
 public slots:
     virtual void recalculate(); //connect to when used modifiers change
+    void baseChange(int newBase);
+    void modChange(int newMod);
 
 signals:
     void scoreChange(int newValue);

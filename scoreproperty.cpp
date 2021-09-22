@@ -26,6 +26,16 @@ int ScoreProperty::getBase() const
     return base;
 }
 
+void ScoreProperty::baseChange(int newBase){
+    base = newBase;
+    recalculate();
+}
+
+void ScoreProperty::modChange(int newMod){
+    manualMod = newMod;
+    recalculate();
+}
+
 void ScoreProperty::recalculate(){
     if(baseCalculation){
         baseCalculation(baseArg1, baseArg2);
@@ -41,3 +51,4 @@ void ScoreProperty::recalculate(){
     emit onChange();
     emit scoreChange(score);
 }
+
