@@ -15,12 +15,6 @@ void ScoreProperty::addModifier(int *newModifier){
     recalculate();
 }
 
-void ScoreProperty::setBase(int newBase)    //use if property isn't calculated
-{
-    base = newBase;
-    recalculate();
-}
-
 int ScoreProperty::getBase() const
 {
     return base;

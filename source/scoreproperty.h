@@ -20,8 +20,6 @@ public:
     int getScore() const;
     void addModifier(int* newModifier);
 
-    void setBase(int newBase);
-
     bool isCalculated = false;  //set to true if using baseCalculation
     int (*baseCalculation)(ScoreProperty * arg1, ScoreProperty * arg2);    //OVERRIDE THIS EITHER WITH ACTUAL BASE CALCULATION IF APPLICABLE
 

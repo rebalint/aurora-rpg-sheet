@@ -77,9 +77,9 @@ Character::Character(QObject *parent) : QObject(parent)
 
 void Character::roll(){
     //TODO: replace with actual rolls
-    body.setBase(14);
-    mind.setBase(18);
-    soul.setBase(6);
+    body.baseChange(14);
+    mind.baseChange(18);
+    soul.baseChange(6);
 }
 
 //baseCalc functions
