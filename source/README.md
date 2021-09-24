@@ -10,7 +10,12 @@
 - add proper readme
 - transfer in-line to-dos here if needed
 
-- eventually: learn testing on this
+- add more testing
 
+# Race, PClass, magic
+
+read from file
+
+only parse necessary data first (name, description), parse everything needed on selection
 
 # NOTES
