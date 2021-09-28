@@ -13,11 +13,8 @@ class Property : public QObject
     Q_OBJECT
 public:
     explicit Property(QObject *parent = nullptr);
-    const QString &getDescription() const;
-    void setDescription(const QString &newDescription);
+    void setDescription(const QString &newDescription); //setter to make sure onChange is emitted if necessary
     QString name = "property";
-
-private:
     QString description;    //stores a description of the property
 
 signals:

@@ -14,6 +14,7 @@ SOURCES += \
     mainwindow.cpp \
     poolproperty.cpp \
     poolpropertywidget.cpp \
+    prace.cpp \
     property.cpp \
     scoreproperty.cpp \
     scorepropertywidget.cpp
@@ -23,6 +24,7 @@ HEADERS += \
     mainwindow.h \
     poolproperty.h \
     poolpropertywidget.h \
+    prace.h \
     property.h \
     scoreproperty.h \
     scorepropertywidget.h
@@ -41,4 +43,8 @@ DISTFILES += \
     README.md \
     ../README.md\
     ../.gitignore\
-    ../deploy.bat
+    ../deploy.bat \
+    races.txt
+
+RESOURCES += \
+    handbook.qrc

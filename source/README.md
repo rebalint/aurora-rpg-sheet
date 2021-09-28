@@ -1,9 +1,9 @@
 # TODO LIST
 
-- move files to src and start tracking release config compile results  
 - add race, classes, magic, etc
     - load data for these from some sort of config file
         - create an editor for this file maybe?
+- add text-only properties to character (like char description)
 - save+load
 - make everything responsive and tidy up UI in general
 
@@ -19,3 +19,37 @@ read from file
 only parse necessary data first (name, description), parse everything needed on selection
 
 # NOTES
+
+loader in character loads file 1, which contains descriptions of general abilities, etc (like wp, hp, body), uses these to set description field for them based on name
+
+loader loads races.txt, containing races
+    - first line is the number of races
+    
+    - subraces are also implemented as races, with a `subraceof` field
+    fields:
+        - separator: | for inline stuff, newline between properties
+        - RACE [number of properties belonging to the class]
+        
+        - name
+        - description
+        
+        - subraceof (`none` if not a subrace)
+
+        - array of properties
+            - SCORE [varname/anyskill/anyability OR varname1/varname2] [MOD/SET] [num] format for modifiers (incl. speed)
+            - TEXT [desc] or text-based traits, size, etc
+            - CLASS [SET/NOT] classname
+
+RETHINK THIS VERY HEAVILY!!!
+
+EXAMPLE RACE ENTRY:
+```
+RACE 5
+Storm elf|Storm elves are typically shorter and stockier with less pronounced tapered ears. The skin of storm elves resembles mottled gray skies, and their hair is typically a pale yellow or blue.
+subraceof Elf
+TEXT Your size is medium.
+SCORE mind MOD +2
+SCORE connection/nimble MOD +1
+SCORE perception MOD +1
+SCORE speed MOD +2
+```

@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFile>
 #include "character.h"
+#include "prace.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,6 +24,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QVector<PRace *> allRaces;
+
+    void raceLoader();
 
 };
 #endif // MAINWINDOW_H

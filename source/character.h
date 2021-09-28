@@ -14,7 +14,7 @@
 #include <QDebug>
 #include "poolproperty.h"
 #include "scoreproperty.h"
-//#include "skillproperty.h"
+#include "prace.h"
 
 class Character : private QObject
 {
@@ -44,12 +44,15 @@ public:
     ScoreProperty magic;
     ScoreProperty connection;
 
+    PRace race;
+
     //Funtions for calculating certain properties
     static int hpBase(ScoreProperty * arg1, ScoreProperty * arg2);
     static int wpBase(ScoreProperty * arg1, ScoreProperty * arg2);
     static int nrBase(ScoreProperty * arg1, ScoreProperty * arg2);
     static int srBase(ScoreProperty * arg1, ScoreProperty * arg2);
     static int skillBase(ScoreProperty * arg1, ScoreProperty * arg2);
+
 
 
 signals:
