@@ -82,7 +82,7 @@ void MainWindow::raceLoader(){
         }
 
         //finished processing, adding race to list
-        allRaces.emplaceBack(current);
+        allRaces.emplaceBack(& current);
     }
 
 

@@ -16,6 +16,7 @@ public:
     QString subraceof;
     QVector<Property> textProps;    //store all text-only properties
 
+
 };
 
 #endif // PRACE_H
