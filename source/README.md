@@ -1,6 +1,7 @@
 # TODO LIST
 
 - add race, classes, magic, etc
+- add ferin and elder race traits
 - add UI for race, class and magic
 - add text-only properties to character (like char description)
 - save+load
