@@ -16,6 +16,7 @@ SOURCES += \
     poolpropertywidget.cpp \
     prace.cpp \
     property.cpp \
+    racemodifier.cpp \
     scoreproperty.cpp \
     scorepropertywidget.cpp
 
@@ -26,6 +27,7 @@ HEADERS += \
     poolpropertywidget.h \
     prace.h \
     property.h \
+    racemodifier.h \
     scoreproperty.h \
     scorepropertywidget.h
 

@@ -5,6 +5,7 @@
 #include <QFile>
 #include "character.h"
 #include "prace.h"
+#include "racemodifier.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

@@ -6,6 +6,7 @@
 
 #include <QObject>
 #include "property.h"
+#include "racemodifier.h"
 
 class PRace : public Property
 {
@@ -14,8 +15,11 @@ public:
     explicit PRace(QObject *parent = nullptr);
 
     QString subraceof;
-    QVector<Property> textProps;    //store all text-only properties
+    QMap<QString, bool> classRestrictions;  //syntax: "classname": true means race has to be that class, false means it cannot be
 
+    QVector<Property *> textProps;    //store all text-only properties
+
+    QVector<RaceModifier *> modProps;
 };
 
 #endif // PRACE_H

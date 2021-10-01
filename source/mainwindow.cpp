@@ -51,10 +51,8 @@ void MainWindow::raceLoader(){
 
     raceNumber = line.toInt();
 
-    qDebug() << "race number: " << raceNumber;
-
     for(int currentRaceNum = 0; currentRaceNum < raceNumber; currentRaceNum++){
-        PRace current;
+        PRace * current = new PRace();
         int propNum;    //number of extra properties for currently loading race
 
         line = racefile.readLine();
@@ -70,21 +68,66 @@ void MainWindow::raceLoader(){
 
         //load name, desc, subraceof
         line = racefile.readLine();
-        current.name = line.section('|', 0, 0);
-        current.description = line.section('|', 1, 1);
+        current->name = line.section('|', 0, 0);
+        current->description = line.section('|', 1, 1);
 
         line = racefile.readLine();
-        current.subraceof = line.section(' ', 1, 1);
+        current->subraceof = line.section(' ', 1, 1);
 
         for(int currentPropNum = 0; currentPropNum < propNum; currentPropNum++){
             line = racefile.readLine();
-            //TODO add processing
+
+            if(line.section(' ', 0, 0) == "TEXT"){
+                Property * txtProp = new Property();
+                txtProp->description = line.section('0', 1);
+                current->textProps.push_back(txtProp);
+            } else if(line.section(' ', 0, 0) == "SCORE"){
+                RaceModifier * raceMod = new RaceModifier();
+
+                //determine mod amount, get prop name(s)
+                if(line.contains('/')){
+                    //mod is choice-based
+                    raceMod->prop1Name = line.section(' ', 1, 1).section('/', 0, 0);
+                    raceMod->prop1Name = line.section(' ', 1, 1).section('/', 1, 1);
+                    raceMod->modType = "TWOPROP|";
+                } else{
+                    //mod applies to a determined score
+                    raceMod->prop1Name = line.section(' ', 1, 1);
+                    raceMod->modType = "ONEPROP|";
+                }
+
+                //determine SET/MOD, finish setting modType
+                if(line.section(' ', 2, 2) == "SET"){
+                    raceMod->modType += "SET";
+                } else if(line.section(' ', 2, 2) == "MOD"){
+                    raceMod->modType += "MOD";
+                } else {
+                    qDebug() << "Error: modType selection defaulted.";
+                }
+
+                //set score
+                raceMod->modifier = line.section(' ', 3, 3).toInt();
+                current->modProps.push_back(raceMod);
+
+            } else if(line.section(' ', 0, 0) == "CLASS"){
+                bool classRestrictionType;
+                if(line.section(' ', 1, 1) == "SET"){
+                    classRestrictionType = true;
+                } else if(line.section(' ', 1, 1) == "NOT"){
+                    classRestrictionType = false;
+                } else {
+                    qDebug() << "Error: failed to determine class restriction type.";
+                }
+
+                QString classRestrictionName = line.section(' ', 2, 2);
+
+                current->classRestrictions[classRestrictionName] = classRestrictionType;
+            }
         }
 
         //finished processing, adding race to list
         allRaces.emplaceBack(current);
     }
-
 
     racefileHandler.close();
 }
