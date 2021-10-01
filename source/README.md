@@ -1,8 +1,7 @@
 # TODO LIST
 
 - add race, classes, magic, etc
-    - load data for these from some sort of config file
-        - create an editor for this file maybe?
+- add UI for race, class and magic
 - add text-only properties to character (like char description)
 - save+load
 - make everything responsive and tidy up UI in general
@@ -15,8 +14,6 @@
 # Race, PClass, magic
 
 read from file
-
-only parse necessary data first (name, description), parse everything needed on selection
 
 # NOTES
 
@@ -40,7 +37,6 @@ loader loads races.txt, containing races
             - TEXT [desc] or text-based traits, size, etc
             - CLASS [SET/NOT] classname
 
-RETHINK THIS VERY HEAVILY!!!
 
 EXAMPLE RACE ENTRY:
 ```
