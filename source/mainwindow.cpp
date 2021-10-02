@@ -27,6 +27,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->hpBox->poolConnect(& ch.hp);
     ui->wpBox->poolConnect(& ch.wp);
+
+    //TESTLINE
+    ch.setRace(allRaces[0]);
 }
 
 MainWindow::~MainWindow()
@@ -126,6 +129,7 @@ void MainWindow::raceLoader(){
         }
 
         //finished processing, adding race to list
+        current->setup();
         allRaces.emplaceBack(current);
     }
 

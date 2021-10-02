@@ -14,12 +14,16 @@ class PRace : public Property
 public:
     explicit PRace(QObject *parent = nullptr);
 
+    void setup();
+
     QString subraceof;
     QMap<QString, bool> classRestrictions;  //syntax: "classname": true means race has to be that class, false means it cannot be
 
     QVector<Property *> textProps;    //store all text-only properties
 
     QVector<RaceModifier *> modProps;
+
+    QVector<RaceModifier *> getOneProp();   //returns a qvector of modprops that can be automatically applied
 };
 
 #endif // PRACE_H

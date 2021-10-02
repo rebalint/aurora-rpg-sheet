@@ -82,6 +82,19 @@ void Character::roll(){
     soul.baseChange(6);
 }
 
+void Character::setRace(PRace * newRace){
+    race = newRace;
+
+    //connect numerical mods that don't have any options we want the player to set
+    QVector<RaceModifier *> oneprop = race->getOneProp();
+
+    for(int i = 0; i < oneprop.size(); i++){
+        //TODO figure this out
+        //yes this isn't very scalable but it should be fine
+
+    }
+}
+
 //baseCalc functions
 int Character::hpBase(ScoreProperty * arg1, ScoreProperty * arg2){  //arg1: body
         return(arg1->score * 2);

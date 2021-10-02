@@ -44,7 +44,7 @@ public:
     ScoreProperty magic;
     ScoreProperty connection;
 
-    PRace race;
+    PRace * race;
 
     //Funtions for calculating certain properties
     static int hpBase(ScoreProperty * arg1, ScoreProperty * arg2);
@@ -57,6 +57,8 @@ public:
 
 signals:
 
+public slots:
+    void setRace(PRace * newRace);
 };
 
 #endif // CHARACTER_H

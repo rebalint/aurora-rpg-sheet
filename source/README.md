@@ -16,7 +16,9 @@
 
 read from file
 
-# NOTES
+## Race
+
+### Loader
 
 loader in character loads file 1, which contains descriptions of general abilities, etc (like wp, hp, body), uses these to set description field for them based on name
 
@@ -39,6 +41,10 @@ loader loads races.txt, containing races
             - CLASS [SET/NOT] classname
 
 
+Ferin: basic race entry, check if  it's ferin if/when race is loaded, set up custom stuff
+
+Elder race: same thing, only handle it after ch.race has been set
+
 EXAMPLE RACE ENTRY:
 ```
 RACE 5
@@ -50,3 +56,22 @@ SCORE connection/nimble MOD +1
 SCORE perception MOD +1
 SCORE speed MOD +2
 ```
+
+### Adding race to character
+
+select via ui somehow
+
+
+
+###  RaceUI
+
+## Class
+
+read from file
+
+
+# NOTES
+
+tab widget to change between view/edit of race, class and spells
+
+TODO: if implemented in rulebook, allow races to add spells to character

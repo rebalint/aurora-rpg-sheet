@@ -16,7 +16,7 @@ class RaceModifier : public Property
 public:
     explicit RaceModifier(QObject *parent = nullptr);
 
-    //QString generateDescription();    //TODO: implement this to generate standard text description
+    void generateDescription();    //TODO: implement this to generate standard text description
 
     QString modType;
 
