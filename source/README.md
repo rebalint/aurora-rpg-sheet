@@ -69,6 +69,14 @@ select via ui somehow
 
 read from file
 
+# TESTING
+
+using GTest
+
+in order to use, download googletest source and link it in testing/gtest_dependency.pri by adding:
+```
+GOOGLETEST_DIR = [gtest source]/googletest
+```
 
 # NOTES
 
