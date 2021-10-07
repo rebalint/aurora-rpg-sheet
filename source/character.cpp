@@ -91,7 +91,48 @@ void Character::setRace(PRace * newRace){
     for(int i = 0; i < oneprop.size(); i++){
         //TODO figure this out
         //yes this isn't very scalable but it should be fine
+        addModByName(oneprop.at(i)->prop1Name, oneprop.at(i));
 
+    }
+}
+
+void Character::addModByName(QString name, RaceModifier *mod){
+    getPropByName(name)->addModifier(& mod->modifier);
+}
+
+ScoreProperty * Character::getPropByName(QString name){
+    //ugly boilerplate code, couldn't do anything better
+    if(name == "body"){
+        return & body;
+    } else if(name == "mind"){
+        return & mind;
+    } else if(name == "soul"){
+        return & soul;
+    } else if(name == "hp"){
+        return & hp.max;
+    } else if(name == "wp"){
+        return & wp.max;
+    } else if(name == "nr"){
+        return & nr;
+    } else if(name == "sr"){
+        return & sr;
+    } else if(name == "speed"){
+        return & speed;
+    } else if(name == "strength"){
+        return & strength;
+    } else if(name == "nimble"){
+        return & nimble;
+    } else if(name == "perception"){
+        return & perception;
+    } else if(name == "diplomacy"){
+        return & diplomacy;
+    } else if(name == "magic"){
+        return & magic;
+    } else if(name == "connection"){
+        return & connection;
+    } else {
+        qDebug() << "Couldn't connect " << name << ".";
+        exit(EXIT_FAILURE);
     }
 }
 

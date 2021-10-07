@@ -53,7 +53,8 @@ public:
     static int srBase(ScoreProperty * arg1, ScoreProperty * arg2);
     static int skillBase(ScoreProperty * arg1, ScoreProperty * arg2);
 
-
+    ScoreProperty* getPropByName(QString name);
+    void addModByName(QString name, RaceModifier * mod);    //adds mod to property of the given name
 
 signals:
 
