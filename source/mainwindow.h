@@ -23,6 +23,8 @@ public:
 
 private slots:
 
+    void on_raceSet_clicked();
+
 private:
     Ui::MainWindow *ui;
     QVector<PRace *> allRaces;

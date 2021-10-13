@@ -1,5 +1,7 @@
 # TODO LIST
 
+- add [name]|[description] option for text properties in race loader
+
 - add race, classes, magic, etc
 - add ferin and elder race traits
 - add UI for race, class and magic

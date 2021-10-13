@@ -131,7 +131,38 @@ void MainWindow::raceLoader(){
         //finished processing, adding race to list
         current->setup();
         allRaces.emplaceBack(current);
+
+        //add race to raceCombo
+        ui->raceCombo->addItem(current->name);
     }
 
     racefileHandler.close();
 }
+
+void MainWindow::on_raceSet_clicked()
+{
+    //Set ch race to race selected with combobox
+    //get pointer to selected PRace object
+    for(int i = 0; i< allRaces.size(); i++){
+        if(allRaces.at(i)->name == ui->raceCombo->currentText()){
+            ch.setRace(allRaces.at(i));
+            qDebug() << "selected race.";
+        }
+    }
+
+
+    ui->
+    //Change ui to describe race details in addition to race selector
+    /*
+     * disp racename
+     * disp racedesc
+     * for racemod
+     *      disp
+     * for raceprop
+     *      disp
+     *
+     * TODO set up racemod and raceprop display elements (probably from QItem or smtg?)
+     */
+
+}
+

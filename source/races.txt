@@ -1,4 +1,4 @@
-1
+2
 RACE 5
 Storm elf|Storm elves are typically shorter and stockier with less pronounced tapered ears. The skin of storm elves resembles mottled gray skies, and their hair is typically a pale yellow or blue.
 subraceof Elf
@@ -7,3 +7,11 @@ SCORE mind MOD +2
 SCORE connection/nimble MOD +1
 SCORE perception MOD +1
 SCORE speed MOD +2
+RACE 5
+Wind elf|Tall and elegant, the wind elves resemble clearer skies and tend towards a more purple or silvery palette with streaks like cirrostratus clouds. Tend to live on mountain peaks.
+subraceof Elf
+TEXT Your  size is medium.
+SCORE mind MOD +2
+SCORE connection/nimble MOD +1
+SCORE connection MOD +1
+TEXT Quick Change. Twice per nap, you can reroll any dice of your choosing.
